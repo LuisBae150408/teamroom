@@ -1,0 +1,23 @@
+# Team Room — bloquea archivos y carpetas que nunca deben verse desde la web.
+# Sube este archivo a la MISMA carpeta pública donde están api.php, config.php y .env
+# (normalmente public_html/ o la subcarpeta donde instalaste la app).
+
+# Apache 2.4+ (lo habitual hoy en Namecheap)
+<IfModule mod_authz_core.c>
+    <FilesMatch "^(\.env|config\.php|error_log|.*\.log)$">
+        Require all denied
+    </FilesMatch>
+</IfModule>
+
+# Respaldo para Apache 2.2 por si el hosting usa una versión vieja
+<IfModule !mod_authz_core.c>
+    <FilesMatch "^(\.env|config\.php|error_log|.*\.log)$">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+</IfModule>
+
+# Evita que se pueda listar el contenido de una carpeta si falta un index
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>

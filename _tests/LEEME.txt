@@ -1,0 +1,5 @@
+Pruebas de desarrollo (NO subir a cPanel). Las rutas están fijadas a /tmp: ajústalas.
+Requisitos: php-cli + php-curl; npm i jsdom sharp @sparticuz/chromium puppeteer-core
+1) Copia team-room/ a /tmp/saltest y fake.php a /tmp/fake/.  2) Ejecuta start_servers.sh (fake :9001, app :9002).
+3) node mkimgs.js (imágenes de prueba)  4) node e2e.js | rooms_e2e.js | img_e2e.js
+El Gemini simulado se activa con GEMINI_ENDPOINT='http://127.0.0.1:9001/%s:generateContent'.

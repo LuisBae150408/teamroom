@@ -1,0 +1,11 @@
+# Bloquea el acceso web a TODO lo que haya en esta carpeta.
+# Lo correcto es ni siquiera subir _tests/ al hosting (bórrala si ya está) —
+# este archivo es solo un respaldo por si vuelve a subirse por error.
+
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>

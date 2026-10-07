@@ -1,0 +1,13 @@
+# Secretos: NUNCA al repositorio (el modelo a copiar es .env.ejemplo)
+.env
+.env.*
+!.env.ejemplo
+!.env.example
+
+# Logs del servidor
+error_log
+*.log
+
+node_modules/
+.DS_Store
+Thumbs.db
